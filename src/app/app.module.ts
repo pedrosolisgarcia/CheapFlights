@@ -1,14 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { DateSelectorComponent } from './components/date-selector/date-selector.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DateSelectorComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
