@@ -2,15 +2,17 @@ import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { DatePipe } from '@angular/common';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 import { DateSelectorComponent } from './components/date-selector/date-selector.component';
 import { DateWrapperComponent } from './components/date-wrapper/date-wrapper.component';
 import { AiportsService } from './services/airports.service';
 import { CheapFlightService } from './services/cheapflights.service';
 import { AirportSelectorComponent } from './components/airport-selector/airport-selector.component';
-import { FilterPipe } from './filter.pipe';
 import { FlightListComponent } from './components/flight-list/flight-list.component';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -24,9 +26,10 @@ import { FlightListComponent } from './components/flight-list/flight-list.compon
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule
   ],
-  providers: [AiportsService, CheapFlightService],
+  providers: [AiportsService, CheapFlightService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
