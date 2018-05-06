@@ -1,0 +1,62 @@
+<div class="container">
+
+  <div class="airport-area">
+      <div class="airport-field">
+          <label for="airportInput"><strong>From:</strong></label>
+          <input name="airportInput" type="text" (focus)="showAirports = true; showDateArea = false; datesSet= false" [(ngModel)]="filteredAirport" placeholder="Departure Airport">
+      </div>
+
+      <div class="airport-field">
+          <label for="destinationInput"><strong>To:</strong></label>
+          <input name="destinationInput" [disabled]="!airportSelected" type="text" (focus)="showDestinations = true; showDateArea = false; datesSet= false" 
+          [(ngModel)]="filteredDestination" placeholder="Destination Airport">
+      </div>
+      <div class="continue-button">
+          <button [disabled]="!destinationSelected" type="button" (click)="showAirports = false; showDestinations = false; showDateArea = true">Continue</button>
+      </div>
+  </div>
+
+  <div class="list-area">
+      <div class="airport-list" *ngIf="showAirports">
+          <ul *ngFor="let airport of airports | filter:filteredAirport:'name'">
+              <li style="cursor: pointer" (click)="selectedAirport = airport; filteredAirport = airport.name;
+              airportSelected = true; onShowDestinations(selectedAirport.iataCode)">{{ airport.name }}</li>
+          </ul>
+      </div>
+      <div class="airport-list" *ngIf="showDestinations">
+          <ul *ngFor="let destination of destinations | filter:filteredDestination:'name'">
+              <li style="cursor: pointer" (click)="selectedDestination = destination; filteredDestination = destination.name;
+              destinationSelected = true">{{ destination.name }}</li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="date-area" *ngIf="showDateArea">
+      <div class="date-field">
+          <label for="flyOut"><strong>Fly out:</strong></label>
+          <input name="flyOut" type="date" [(ngModel)]="startDate">
+          <!-- <input name="flyOut" [matDatepicker]="myDatepicker">
+          <mat-datepicker #myDatepicker></mat-datepicker> -->
+          
+      </div>
+      <div class="date-field">
+          <label for="flyBack"><strong>Fly Back:</strong></label>
+          <input name="flyBack" type="date" [(ngModel)]="endDate">
+      </div>
+      <div class="flights-button">
+          <!-- <button type="button" (click)="datesSet = true">Lets go!</button> -->
+          <!-- <button type="button" 
+          [routerLink]="['/flights', selectedAirport, selectedDestination, startDate, endDate]">Lets go!</button> -->
+          <button type="button" 
+          [routerLink]="['/flights', selectedAirport.iataCode, selectedAirport.name,
+          selectedDestination.iataCode, selectedDestination.name, startDate, endDate]">Lets go!</button>
+      </div>
+  </div>
+  <br>
+  <!-- <div *ngIf="datesSet">
+      <app-flight-list [departure]="selectedAirport" [destination]="selectedDestination" [startDate]="startDate" [endDate]="endDate"></app-flight-list>
+  </div> -->
+  <div>
+      <router-outlet></router-outlet>
+  </div>
+</div>

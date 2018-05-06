@@ -7,12 +7,16 @@ import { AppComponent } from './app.component';
 import { DateSelectorComponent } from './components/date-selector/date-selector.component';
 import { DateWrapperComponent } from './components/date-wrapper/date-wrapper.component';
 import { AiportsService } from './services/airports.service';
+import { AirportSelectorComponent } from './components/airport-selector/airport-selector.component';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     DateSelectorComponent,
-    DateWrapperComponent
+    DateWrapperComponent,
+    AirportSelectorComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
