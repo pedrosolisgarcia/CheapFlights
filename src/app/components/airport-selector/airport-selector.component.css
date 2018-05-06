@@ -1,0 +1,92 @@
+.container {
+    display: block;
+}
+
+.airport-area, .list-area, .date-area {
+    display: block;
+    margin-top: 1em;
+    margin-right: auto; 
+    margin-left: auto;
+    background-color: #1177ca;
+    border: 1px solid #073590;
+    width: 90%;
+}
+
+.airport-field, .date-field {
+    margin-top: 50px;
+    display: inline-block;
+    width: 35%;
+    margin: 0.25em;
+    border-radius: 5px;
+    background: white;
+    
+}
+
+.continue-button, .flights-button{
+    display: inline-block;
+    margin-left: 1em;
+    width: 25%;
+    text-align: center;
+}
+
+button {
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 100%;
+    font-size: 24px;
+    font-weight: 700;
+    padding: 7px 32px;
+    color: #073590;
+    background-color: #F1C933;
+    border-color: #F1C933;
+    border-radius: 5px;
+    outline: 0;
+}
+
+.airport-list {
+    width: 75%;
+    margin: 0.25em;
+}
+
+input {
+    width: 90%;
+    height: 28px;
+    padding: 0 10px;
+    color: #073590;
+    font-size: 18px;
+    font-weight: 700;
+    outline: 0;
+    vertical-align: middle;
+    text-transform: capitalize;
+    z-index: 1;
+    line-height: 28px;
+    bottom: 0;
+    border: 1px;
+    background: 0 0;
+    border-radius: 5px;
+}
+
+label {
+    display: block;
+    padding: 4px 10px;
+    font-size: 14px;
+    width: 93%;
+    background: #e9f2f9;
+    color: #2E2E2E;
+    line-height: 18px;
+    border-radius: 4px 4px 0 0;
+    border-bottom: 1px solid #cee1f2;
+}
+
+ul {
+    padding-left: 0;
+  }
+  ul li {
+    float: left;
+    width: 48%;
+    text-align: center;
+    list-style-type: none;
+    background: lightgray;
+    padding: 10px 0 10px 0;
+    margin: 2px;
+  }
