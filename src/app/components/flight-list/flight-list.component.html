@@ -1,0 +1,9 @@
+<div class="flights-list">
+  <ul *ngFor="let flight of flights">
+      <li style="cursor: pointer" >
+      <p>Flight from {{ departure.name }} to {{ destination.name }}: {{ flight.dateFrom | date:'dd/MM/yyyy' }}</p>
+      <p>Flight from {{ destination.name }} to {{ departure.name }}: {{ flight.dateTo | date:'dd/MM/yyyy' }}</p>
+      <p>Total price: {{ flight.price | number : '1.2-2' }} {{ flight.currency }}</p>
+      </li>
+  </ul>
+</div>
