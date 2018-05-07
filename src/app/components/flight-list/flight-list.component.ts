@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { CheapFlightService } from '../../services/cheapflights.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -25,32 +25,38 @@ export class FlightListComponent implements OnInit, OnDestroy {
     price: 0
   }]
 
-  constructor(private route: ActivatedRoute, private cheapFlightService: CheapFlightService) {}
+  constructor(private router: Router, private route: ActivatedRoute, private cheapFlightService: CheapFlightService) {
+
+   this.router.events.subscribe((evt) => {
+      if (evt instanceof NavigationEnd) {      
+
+        this.paramsSubscription = this.gatherFlightInfo();
+        this.onShowFlights(this.departure, this.destination, this.startDate, this.endDate);
+      }
+  });
+  }
 
   ngOnInit() {
-    
-    this.departure = {
-      iataCode: this.route.snapshot.params['depCode'],
-      name: this.route.snapshot.params['depName']
-    }
-    this.destination = {
-      iataCode: this.route.snapshot.params['destCode'],
-      name: this.route.snapshot.params['destName']
-    }
-    this.startDate = this.route.snapshot.params['startDate'];
-    this.endDate = this.route.snapshot.params['endDate'];
+    this.paramsSubscription = this.gatherFlightInfo();
+    this.onShowFlights(this.departure, this.destination, this.startDate, this.endDate);
+  }
 
-    this.paramsSubscription = this.route.params.subscribe(
+  gatherFlightInfo() {
+
+    return this.route.params.subscribe(
       (params: Params) => {
-        this.departure.iataCode = params['depCode'];
-        this.departure.name = params['depName'];
-        this.destination.iataCode = params['destCode'];
-        this.destination.name = params['destName'];
+        this.departure = {
+          iataCode: params['depCode'],
+          name: params['depName']
+        }
+        this.destination = {
+          iataCode: params['destCode'],
+          name: params['destName']
+        }
         this.startDate = params['startDate'];
         this.endDate = params['endDate'];
       }
     );
-    this.onShowFlights(this.departure, this.destination, this.startDate, this.endDate);
   }
 
   onShowFlights(departure: any, destination: any, startDate: any, endDate: any) {

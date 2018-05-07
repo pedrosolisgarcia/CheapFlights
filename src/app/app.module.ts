@@ -8,8 +8,6 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 import { AppRoutingModule } from './app-routing.module';
-import { DateSelectorComponent } from './components/date-selector/date-selector.component';
-import { DateWrapperComponent } from './components/date-wrapper/date-wrapper.component';
 import { AiportsService } from './services/airports.service';
 import { CheapFlightService } from './services/cheapflights.service';
 import { AirportSelectorComponent } from './components/airport-selector/airport-selector.component';
@@ -19,8 +17,6 @@ import { FilterPipe } from './filter.pipe';
 @NgModule({
   declarations: [
     AppComponent,
-    DateSelectorComponent,
-    DateWrapperComponent,
     AirportSelectorComponent,
     FilterPipe,
     FlightListComponent

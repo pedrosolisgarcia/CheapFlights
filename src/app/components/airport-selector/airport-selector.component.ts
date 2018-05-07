@@ -75,4 +75,9 @@ export class AirportSelectorComponent implements OnInit {
       console.log(this.endDate);
     } 
   }
+
+  onLoadFlightsComponent() {
+    this.router.navigate(['/flights/', this.selectedAirport.iataCode, this.selectedAirport.name, this.selectedDestination.iataCode,
+     this.selectedDestination.name, this.startDate,this.endDate]);
+  }
 }
