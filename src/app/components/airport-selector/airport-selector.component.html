@@ -4,27 +4,27 @@
       <div class="airport-field">
           <label for="airportInput"><strong>From:</strong></label>
           <input name="airportInput" type="text" 
-          (focus)="showAirports = true; showDestinations = false; showDateArea = false" 
+          (focus)="showDepartures = true; showDestinations = false; showDateArea = false" 
            placeholder="Departure Airport" [(ngModel)]="filteredAirport">
       </div>
 
       <div class="airport-field">
           <label for="destinationInput"><strong>To:</strong></label>
-          <input name="destinationInput" [disabled]="!airportSelected" type="text" 
-          (focus)="showDestinations = true; showAirports = false; showDateArea = false" 
+          <input name="destinationInput" [disabled]="!departureSelected" type="text" 
+          (focus)="showDestinations = true; showDepartures = false; showDateArea = false" 
           [(ngModel)]="filteredDestination" placeholder="Destination Airport">
       </div>
       <div class="core-button">
           <button [disabled]="!destinationSelected" type="button" 
-          (click)="showDateArea = true; showAirports = false; showDestinations = false">Continue</button>
+          (click)="showDateArea = true; showDepartures = false; showDestinations = false">Continue</button>
       </div>
   </div>
 
   <div class="list-area">
-      <div class="airport-list" *ngIf="showAirports">
-          <ul *ngFor="let airport of airports | filter:filteredAirport:'name'">
-              <li style="cursor: pointer" (click)="selectedAirport = airport; filteredAirport = airport.name;
-              airportSelected = true; onShowDestinations(selectedAirport.iataCode)">{{ airport.name }}</li>
+      <div class="airport-list" *ngIf="showDepartures">
+          <ul *ngFor="let airport of departures | filter:filteredAirport:'name'">
+              <li style="cursor: pointer" (click)="selectedDeparture = airport; filteredAirport = airport.name;
+              departureSelected = true; onShowDestinations(selectedDeparture.iataCode)">{{ airport.name }}</li>
           </ul>
       </div>
       <div class="airport-list" *ngIf="showDestinations">
@@ -50,11 +50,6 @@
         <mat-datepicker-toggle matSuffix [for]="pickerBack"></mat-datepicker-toggle>
         <mat-datepicker #pickerBack></mat-datepicker>
       </div>
-      <!-- <div class="core-button">
-          <button type="button" 
-          [routerLink]="['/flights', selectedAirport.iataCode, selectedAirport.name,
-          selectedDestination.iataCode, selectedDestination.name, startDate, endDate]">Lets go!</button>
-      </div> -->
       <div class="core-button">
             <button type="button" 
             (click)="onLoadFlightsComponent()">Lets go!</button>

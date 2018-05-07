@@ -15,8 +15,8 @@ export class AirportSelectorComponent implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute, private airpotsService: AiportsService, private datePipe: DatePipe) {}
 
-  airports: any;
-  selectedAirport = {
+  departures: any;
+  selectedDeparture = {
     iataCode: '',
     name: ''
   };
@@ -25,9 +25,9 @@ export class AirportSelectorComponent implements OnInit {
     iataCode: '',
     name: ''
   };
-  showAirports = false;
+  showDepartures = false;
   showDestinations = false;
-  airportSelected = false;
+  departureSelected = false;
   filteredAirport = '';
   filteredDestination = '';
   showDateArea = false;
@@ -39,13 +39,13 @@ export class AirportSelectorComponent implements OnInit {
   maxDate = new Date(2018, 5, 20);
 
   ngOnInit() {
-   this.onShowAirports();
+   this.onShowDepartures();
   }
 
-  onShowAirports() {
-    this.airpotsService.getAirports().subscribe(
-      (airports: any) => {
-        this.airports = airports
+  onShowDepartures() {
+    this.airpotsService.getDepartures().subscribe(
+      (departures: any) => {
+        this.departures = departures
       },
       (error) => console.log(error)
     );
@@ -77,7 +77,7 @@ export class AirportSelectorComponent implements OnInit {
   }
 
   onLoadFlightsComponent() {
-    this.router.navigate(['/flights/', this.selectedAirport.iataCode, this.selectedAirport.name, this.selectedDestination.iataCode,
+    this.router.navigate(['/flights/', this.selectedDeparture.iataCode, this.selectedDeparture.name, this.selectedDestination.iataCode,
      this.selectedDestination.name, this.startDate,this.endDate]);
   }
 }

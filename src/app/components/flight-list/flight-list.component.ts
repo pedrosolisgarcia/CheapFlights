@@ -35,7 +35,7 @@ export class FlightListComponent implements OnInit, OnDestroy {
       }
   });
   }
-
+  
   ngOnInit() {
     this.paramsSubscription = this.gatherFlightInfo();
     this.onShowFlights(this.departure, this.destination, this.startDate, this.endDate);

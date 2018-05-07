@@ -8,12 +8,11 @@ export class AiportsService {
 
   constructor(private http: Http) {}
 
-  getAirports() {
+  getDepartures() {
     return this.http.get('https://murmuring-ocean-10826.herokuapp.com/en/api/2/forms/flight-booking-selector/')
     .map(
       (response: Response) => {
         const data = response.json();
-        console.log(data.airports);
         return data.airports;
       }
     ).catch(
@@ -31,7 +30,6 @@ export class AiportsService {
         for (const destination of data.routes[iataCode]) {
           destinations.push(data.airports.find(x => x.iataCode == destination));
         }
-        console.log(destinations);
         return destinations;
       }
     ).catch(
