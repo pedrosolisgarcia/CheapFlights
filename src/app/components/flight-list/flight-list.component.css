@@ -1,15 +1,16 @@
-.flights-list {
+.flights-list-area {
     display: block;
     text-align: center;
 }
 
-ul {
+.flights-list {
     width: 50%;
     padding-left: 0;
     margin-right: auto; 
     margin-left: auto;
   }
-  ul li {
+  .flights-list-item {
+    cursor: pointer;
     list-style-type: none;
     background: lightgray;
     padding: 10px 0 10px 0;

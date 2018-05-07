@@ -1,7 +1,8 @@
 import { Component, Injectable, OnInit, NgModule } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AiportsService } from '../../services/airports.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-airport-selector',
@@ -10,7 +11,9 @@ import { AiportsService } from '../../services/airports.service';
 })
 export class AirportSelectorComponent implements OnInit {
 
-  constructor(private router: Router, private airpotsService: AiportsService) {}
+  navigationSubscription: Subscription;
+
+  constructor(private router: Router, private route: ActivatedRoute, private airpotsService: AiportsService, private datePipe: DatePipe) {}
 
   airports: any;
   selectedAirport = {
@@ -31,7 +34,9 @@ export class AirportSelectorComponent implements OnInit {
   destinationSelected = false;
   startDate: any;
   endDate: any;
-  datesSet = false;
+
+  minDate = new Date(2018, 5, 5);
+  maxDate = new Date(2018, 5, 20);
 
   ngOnInit() {
    this.onShowAirports();
@@ -58,5 +63,16 @@ export class AirportSelectorComponent implements OnInit {
 
   onLoadFlightList() {
     this.router.navigate(['/flights']);
+  }
+
+  formatDate(date: string, dateType: string) {
+    if (dateType === 'start') {
+      this.startDate = this.datePipe.transform(date, 'yyyy-MM-dd')
+      console.log(this.startDate);
+    }
+    if (dateType === 'end') {
+      this.endDate = this.datePipe.transform(date, 'yyyy-MM-dd')
+      console.log(this.endDate);
+    } 
   }
 }

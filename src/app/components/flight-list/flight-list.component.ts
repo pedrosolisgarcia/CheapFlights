@@ -1,5 +1,4 @@
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
-import { DatePipe } from '@angular/common'
 import { CheapFlightService } from '../../services/cheapflights.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -26,7 +25,7 @@ export class FlightListComponent implements OnInit, OnDestroy {
     price: 0
   }]
 
-  constructor(private route: ActivatedRoute, private cheapFlightService: CheapFlightService, private datePipe: DatePipe) {}
+  constructor(private route: ActivatedRoute, private cheapFlightService: CheapFlightService) {}
 
   ngOnInit() {
     
@@ -54,13 +53,9 @@ export class FlightListComponent implements OnInit, OnDestroy {
     this.onShowFlights(this.departure, this.destination, this.startDate, this.endDate);
   }
 
-  formatDate(date: any) {
-    return  this.datePipe.transform(date, 'yyyy-MM-dd');
-  }
-
   onShowFlights(departure: any, destination: any, startDate: any, endDate: any) {
 
-    this.cheapFlightService.getFlights(departure, destination, this.formatDate(startDate), this.formatDate(endDate)).subscribe(
+    this.cheapFlightService.getFlights(departure, destination, startDate, endDate).subscribe(
       (flights: any) => {
         this.flights = flights;
         console.log(this.flights);

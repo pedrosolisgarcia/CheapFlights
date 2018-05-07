@@ -10,6 +10,8 @@ export class CheapFlightService {
   constructor(private http: Http) {}
 
   getFlights(departure: any, destination: any, startDate: any, endDate: any) {
+      console.log(startDate);
+      console.log(endDate);
     return this.http.get('https://murmuring-ocean-10826.herokuapp.com/en/api/2/flights/from/' + 
     departure + '/to/' + destination + '/' + startDate + '/' + endDate + '/250/unique/?limit=15&offset-0')
     .map(

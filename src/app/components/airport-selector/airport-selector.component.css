@@ -4,12 +4,18 @@
 
 .airport-area, .list-area, .date-area {
     display: block;
-    margin-top: 1em;
     margin-right: auto; 
     margin-left: auto;
+    width: 90%;
+    overflow: hidden;
+}
+
+.airport-area, .date-area {
+    margin-top: 1em;
     background-color: #1177ca;
     border: 1px solid #073590;
     width: 90%;
+    display: flex;
 }
 
 .airport-field, .date-field {
@@ -22,16 +28,16 @@
     
 }
 
-.continue-button, .flights-button{
+.core-button {
     display: inline-block;
     margin-left: 1em;
+    margin-bottom: auto;
+    margin-top: auto;
     width: 25%;
     text-align: center;
 }
 
 button {
-    margin-top: auto;
-    margin-bottom: auto;
     width: 100%;
     font-size: 24px;
     font-weight: 700;
@@ -44,8 +50,12 @@ button {
 }
 
 .airport-list {
+    display: block;
     width: 75%;
-    margin: 0.25em;
+    margin: right;
+    background-color: #1177ca;
+    border: 1px solid #073590;
+    overflow: hidden;
 }
 
 input {
@@ -66,11 +76,14 @@ input {
     border-radius: 5px;
 }
 
+.date-input {
+    width: 80%;
+}
+
 label {
     display: block;
     padding: 4px 10px;
     font-size: 14px;
-    width: 93%;
     background: #e9f2f9;
     color: #2E2E2E;
     line-height: 18px;
@@ -79,14 +92,22 @@ label {
 }
 
 ul {
+    width: 100%;
+    margin: 0;
     padding-left: 0;
-  }
-  ul li {
+}
+
+ul li {
     float: left;
-    width: 48%;
+    width: 47%;
     text-align: center;
     list-style-type: none;
     background: lightgray;
     padding: 10px 0 10px 0;
     margin: 2px;
-  }
+}
+
+.flights-list {
+    display: block;
+    margin: auto;
+}
