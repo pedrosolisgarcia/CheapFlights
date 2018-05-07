@@ -3,8 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { DatePipe } from '@angular/common';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
+import { MaterialModule } from './material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { DateSelectorComponent } from './components/date-selector/date-selector.component';
 import { DateWrapperComponent } from './components/date-wrapper/date-wrapper.component';
@@ -27,7 +29,10 @@ import { FilterPipe } from './filter.pipe';
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule
   ],
   providers: [AiportsService, CheapFlightService, DatePipe],
   bootstrap: [AppComponent]
