@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FilterPipe implements PipeTransform {
 
   transform(value: any, filterAirport: string, atrName: string): any {
-    if (undefined === value|| value.length === 0 || filterAirport === '') {
+    if (undefined === value || filterAirport === '' || filterAirport === ' ') {
       return value;
     }
     const resultArray = [];
