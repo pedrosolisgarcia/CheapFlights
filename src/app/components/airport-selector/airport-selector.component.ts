@@ -26,8 +26,8 @@ export class AirportSelectorComponent implements OnInit, OnDestroy {
   showDepartures = false;
   showDestinations = false;
   departureSelected = false;
-  filteredAirport = '';
-  filteredDestination = '';
+  typedDeparture = '';
+  typedDestination = '';
   showDateArea = false;
   destinationSelected = false;
   departureDate: any;

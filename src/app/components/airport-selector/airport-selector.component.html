@@ -6,14 +6,14 @@
                 <label for="departureInput">From:</label>
                 <input name="departureInput" type="text" 
                 (focus)="showDepartures = true; showDestinations = false; showDateArea = false" 
-                 placeholder="Departure Airport" [(ngModel)]="filteredAirport">
+                 placeholder="Departure Airport" [(ngModel)]="typedDeparture">
             </div>
       
             <div class="airport-field">
                 <label for="destinationInput">To:</label>
                 <input name="destinationInput" [disabled]="!departureSelected" type="text" 
                 (focus)="showDestinations = true; showDepartures = false; showDateArea = false" 
-                [(ngModel)]="filteredDestination" placeholder="Destination Airport">
+                [(ngModel)]="typedDestination" placeholder="Destination Airport">
             </div>
             <div class="core-button">
                 <button [disabled]="!destinationSelected" type="button" 
@@ -45,14 +45,14 @@
 
     <div class="list-area">
         <div class="airport-list" *ngIf="showDepartures">
-            <ul *ngFor="let airport of departures | filter:filteredAirport:'name'">
-                <li style="cursor: pointer" (click)="selectedDeparture = airport; filteredAirport = airport.name;
-                departureSelected = true; onShowDestinations(selectedDeparture.iataCode)">{{ airport.name }}</li>
+            <ul *ngFor="let departure of departures | filterAirport:typedDeparture">
+                <li style="cursor: pointer" (click)="selectedDeparture = departure; typedDeparture = departure.name;
+                departureSelected = true; onShowDestinations(selectedDeparture.iataCode)">{{ departure.name }}</li>
             </ul>
         </div>
         <div class="airport-list" *ngIf="showDestinations">
-            <ul *ngFor="let destination of destinations | filter:filteredDestination:'name'">
-                <li style="cursor: pointer" (click)="selectedDestination = destination; filteredDestination = destination.name;
+            <ul *ngFor="let destination of destinations | filterAirport:typedDestination">
+                <li style="cursor: pointer" (click)="selectedDestination = destination; typedDestination = destination.name;
                 destinationSelected = true">{{ destination.name }}</li>
             </ul>
         </div>
