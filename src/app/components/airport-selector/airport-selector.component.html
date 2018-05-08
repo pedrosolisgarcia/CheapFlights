@@ -1,60 +1,63 @@
 <div class="container">
 
-  <div class="airport-area">
-      <div class="airport-field">
-          <label for="airportInput"><strong>From:</strong></label>
-          <input name="airportInput" type="text" 
-          (focus)="showDepartures = true; showDestinations = false; showDateArea = false" 
-           placeholder="Departure Airport" [(ngModel)]="filteredAirport">
-      </div>
-
-      <div class="airport-field">
-          <label for="destinationInput"><strong>To:</strong></label>
-          <input name="destinationInput" [disabled]="!departureSelected" type="text" 
-          (focus)="showDestinations = true; showDepartures = false; showDateArea = false" 
-          [(ngModel)]="filteredDestination" placeholder="Destination Airport">
-      </div>
-      <div class="core-button">
-          <button [disabled]="!destinationSelected" type="button" 
-          (click)="showDateArea = true; showDepartures = false; showDestinations = false">Continue</button>
-      </div>
-  </div>
-
-  <div class="list-area">
-      <div class="airport-list" *ngIf="showDepartures">
-          <ul *ngFor="let airport of departures | filter:filteredAirport:'name'">
-              <li style="cursor: pointer" (click)="selectedDeparture = airport; filteredAirport = airport.name;
-              departureSelected = true; onShowDestinations(selectedDeparture.iataCode)">{{ airport.name }}</li>
-          </ul>
-      </div>
-      <div class="airport-list" *ngIf="showDestinations">
-          <ul *ngFor="let destination of destinations | filter:filteredDestination:'name'">
-              <li style="cursor: pointer" (click)="selectedDestination = destination; filteredDestination = destination.name;
-              destinationSelected = true">{{ destination.name }}</li>
-          </ul>
-      </div>
-  </div>
-
-  <div class="date-area" *ngIf="showDateArea">
-      <div class="date-field">
-        <label for="flyOut"><strong>Fly out:</strong></label>
-        <input class="date-input" matInput name="flyOut" [max]="endDate"
-        [matDatepicker]="pickerOut" placeholder="DD/MM/YYYY" [(ngModel)]="startDate" (dateChange)="formatDate(startDate,'start')">
-        <mat-datepicker-toggle matSuffix [for]="pickerOut"></mat-datepicker-toggle>
-        <mat-datepicker #pickerOut></mat-datepicker>
-      </div>
-      <div class="date-field">
-        <label for="flyBack"><strong>Fly Back:</strong></label>
-        <input class="date-input" matInput name="flyBack" [min]="startDate" 
-        [matDatepicker]="pickerBack" placeholder="DD/MM/YYYY" [(ngModel)]="endDate" (dateChange)="formatDate(endDate,'end')">
-        <mat-datepicker-toggle matSuffix [for]="pickerBack"></mat-datepicker-toggle>
-        <mat-datepicker #pickerBack></mat-datepicker>
-      </div>
-      <div class="core-button">
-            <button type="button" 
-            (click)="onLoadFlightsComponent()">Lets go!</button>
+    <div class="airport-main">
+        <div class="airport-area">
+            <div class="airport-field">
+                <label for="airportInput"><strong>From:</strong></label>
+                <input name="airportInput" type="text" 
+                (focus)="showDepartures = true; showDestinations = false; showDateArea = false" 
+                 placeholder="Departure Airport" [(ngModel)]="filteredAirport">
+            </div>
+      
+            <div class="airport-field">
+                <label for="destinationInput"><strong>To:</strong></label>
+                <input name="destinationInput" [disabled]="!departureSelected" type="text" 
+                (focus)="showDestinations = true; showDepartures = false; showDateArea = false" 
+                [(ngModel)]="filteredDestination" placeholder="Destination Airport">
+            </div>
+            <div class="core-button">
+                <button [disabled]="!destinationSelected" type="button" 
+                (click)="showDateArea = true; showDepartures = false; showDestinations = false">Continue</button>
+            </div>
         </div>
-  </div>
+      
+        <div class="date-area" *ngIf="showDateArea">
+            <div class="date-field">
+              <label for="flyOut"><strong>Fly out:</strong></label>
+              <input class="date-input" matInput name="flyOut" [max]="endDate"
+              [matDatepicker]="pickerOut" placeholder="DD/MM/YYYY" [(ngModel)]="startDate" (dateChange)="formatDate(startDate,'start')">
+              <mat-datepicker-toggle matSuffix [for]="pickerOut"></mat-datepicker-toggle>
+              <mat-datepicker #pickerOut></mat-datepicker>
+            </div>
+            <div class="date-field">
+              <label for="flyBack"><strong>Fly Back:</strong></label>
+              <input class="date-input" matInput name="flyBack" [min]="startDate" 
+              [matDatepicker]="pickerBack" placeholder="DD/MM/YYYY" [(ngModel)]="endDate" (dateChange)="formatDate(endDate,'end')">
+              <mat-datepicker-toggle matSuffix [for]="pickerBack"></mat-datepicker-toggle>
+              <mat-datepicker #pickerBack></mat-datepicker>
+            </div>
+            <div class="core-button">
+                  <button type="button" 
+                  (click)="onLoadFlightsComponent()">Lets go!</button>
+              </div>
+        </div>
+    </div>
+
+    <div class="list-area">
+        <div class="airport-list" *ngIf="showDepartures">
+            <ul *ngFor="let airport of departures | filter:filteredAirport:'name'">
+                <li style="cursor: pointer" (click)="selectedDeparture = airport; filteredAirport = airport.name;
+                departureSelected = true; onShowDestinations(selectedDeparture.iataCode)">{{ airport.name }}</li>
+            </ul>
+        </div>
+        <div class="airport-list" *ngIf="showDestinations">
+            <ul *ngFor="let destination of destinations | filter:filteredDestination:'name'">
+                <li style="cursor: pointer" (click)="selectedDestination = destination; filteredDestination = destination.name;
+                destinationSelected = true">{{ destination.name }}</li>
+            </ul>
+        </div>
+    </div>
+  
   <br>
   <div class="flights-list">
     <router-outlet></router-outlet>

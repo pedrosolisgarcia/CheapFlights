@@ -10,10 +10,21 @@
     overflow: hidden;
 }
 
-.airport-area, .date-area {
+.airport-main {
+    display: block;
+    margin-right: auto; 
+    margin-left: auto;
     margin-top: 1em;
     background-color: #1177ca;
     border: 1px solid #073590;
+    width: 90%;
+    overflow: hidden;
+}
+
+.airport-area, .date-area {
+    /* margin-top: 1em;
+    background-color: #1177ca;
+    border: 1px solid #073590; */
     width: 90%;
     display: flex;
 }
