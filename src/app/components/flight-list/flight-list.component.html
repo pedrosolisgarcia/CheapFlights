@@ -6,7 +6,7 @@
       <p>Total price: {{ flight.price | number : '1.2-2' }} {{ flight.currency }}</p>
       </li>
   </ul>
-  <div *ngIf="flights === undefined || flights.length === 0">
+  <div *ngIf="flights.length === 0">
     <p>
       No flights available from {{ departure.name }} to {{ destination.name }} withing the date range 
       {{ startDate | date:'dd/MM/yyyy' }} - {{ endDate | date:'dd/MM/yyyy' }}

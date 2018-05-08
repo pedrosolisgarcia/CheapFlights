@@ -21,6 +21,7 @@ export class AirportSelectorComponent implements OnInit {
   destinations: Airport[];
   selectedDeparture: Airport;
   selectedDestination: Airport;
+  
   showDepartures = false;
   showDestinations = false;
   departureSelected = false;
