@@ -4,7 +4,7 @@ import { DatePipe } from '@angular/common';
 import { Subscription } from 'rxjs';
 
 import { AiportsService } from '../../services/airports.service';
-import { Airport } from '../../airport.model';
+import { Airport } from '../../models/airport.model';
 
 @Component({
   selector: 'app-airport-selector',

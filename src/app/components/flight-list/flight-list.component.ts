@@ -1,8 +1,10 @@
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
-import { CheapFlightService } from '../../services/cheapflights.service';
 import { ActivatedRoute, Params, Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Airport } from '../../airport.model';
+
+import { CheapFlightService } from '../../services/cheapflights.service';
+import { Airport } from '../../models/airport.model';
+import { Flight } from '../../models/flight.model';
 
 @Component({
   selector: 'app-flight-list',
@@ -18,13 +20,7 @@ export class FlightListComponent implements OnInit, OnDestroy {
   startDate: any;
   endDate: any;
 
-  flights = [
-    {
-    dateFrom: '',
-    dateTo: '',
-    currency: '',
-    price: 0
-  }]
+  flights: Flight[];
 
   constructor(private router: Router, private route: ActivatedRoute, private cheapFlightService: CheapFlightService) {
 
@@ -46,14 +42,12 @@ export class FlightListComponent implements OnInit, OnDestroy {
 
     return this.route.params.subscribe(
       (params: Params) => {
-        this.departure = {
-          iataCode: params['depCode'],
-          name: params['depName']
-        }
-        this.destination = {
-          iataCode: params['destCode'],
-          name: params['destName']
-        }
+        this.departure.iataCode = params['depCode'],
+        this.departure.name = params['depName']
+  
+        this.destination.iataCode = params['destCode'],
+        this.destination.name = params['destName']
+        
         this.startDate = params['startDate'];
         this.endDate = params['endDate'];
       }
