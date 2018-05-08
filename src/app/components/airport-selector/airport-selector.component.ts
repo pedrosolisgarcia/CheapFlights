@@ -1,4 +1,4 @@
-import { Component, Injectable, OnInit, NgModule } from '@angular/core';
+import { Component, Injectable, OnInit, NgModule, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { Subscription } from 'rxjs';
@@ -11,10 +11,10 @@ import { Airport } from '../../models/airport.model';
   templateUrl: './airport-selector.component.html',
   styleUrls: ['./airport-selector.component.css']
 })
-export class AirportSelectorComponent implements OnInit {
+export class AirportSelectorComponent implements OnInit, OnDestroy {
 
-  flightsInfoSubscription: Subscription;
-  flightsSubscription: Subscription;
+  departuresSubscription: Subscription;
+  destinationsSubscription: Subscription;
 
   constructor(private router: Router, private route: ActivatedRoute, private airpotsService: AiportsService, private datePipe: DatePipe) {}
 
@@ -38,7 +38,7 @@ export class AirportSelectorComponent implements OnInit {
   }
 
   onShowDepartures() {
-    this.airpotsService.getDepartures().subscribe(
+    this.departuresSubscription = this.airpotsService.getDepartures().subscribe(
       (departures: any) => {
         this.departures = departures
       },
@@ -47,7 +47,7 @@ export class AirportSelectorComponent implements OnInit {
   }
 
   onShowDestinations(iataCode: string) {
-    this.airpotsService.getDestinations(iataCode).subscribe(
+    this.destinationsSubscription = this.airpotsService.getDestinations(iataCode).subscribe(
       (destinations: any) => {
         this.destinations = destinations;
       },
@@ -65,7 +65,12 @@ export class AirportSelectorComponent implements OnInit {
   }
 
   onLoadFlightsComponent() {
-    this.router.navigate(['/flights/', this.selectedDeparture.iataCode, this.selectedDeparture.name, this.selectedDestination.iataCode,
-     this.selectedDestination.name, this.departureDate,this.returnDate]);
+    this.router.navigate(['/flights/from/', this.selectedDeparture.iataCode, this.selectedDeparture.name, 'to', this.selectedDestination.iataCode,
+    this.selectedDestination.name, 'flyOut', this.departureDate, 'flyBack', this.returnDate]);
+  }
+
+  ngOnDestroy() {
+    this.departuresSubscription.unsubscribe();
+    this.destinationsSubscription.unsubscribe();
   }
 }
