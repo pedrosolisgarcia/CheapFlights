@@ -16,13 +16,13 @@ export class AirportSelectorComponent implements OnInit, OnDestroy {
   departuresSubscription: Subscription;
   destinationsSubscription: Subscription;
 
-  constructor(private router: Router, private route: ActivatedRoute, private airpotsService: AiportsService, private datePipe: DatePipe) {}
+  constructor(private router: Router, private route: ActivatedRoute, private airpotsService: AiportsService, private datePipe: DatePipe) { }
 
   departures: Airport[];
   destinations: Airport[];
   selectedDeparture: Airport;
   selectedDestination: Airport;
-  
+
   showDepartures = false;
   showDestinations = false;
   departureSelected = false;
@@ -34,7 +34,7 @@ export class AirportSelectorComponent implements OnInit, OnDestroy {
   returnDate: any;
 
   ngOnInit() {
-   this.onShowDepartures();
+    this.onShowDepartures();
   }
 
   onShowDepartures() {
@@ -61,12 +61,12 @@ export class AirportSelectorComponent implements OnInit, OnDestroy {
     }
     if (dateType === 'end') {
       this.returnDate = this.datePipe.transform(date, 'yyyy-MM-dd')
-    } 
+    }
   }
 
   onLoadFlightsComponent() {
     this.router.navigate(['/flights/from/', this.selectedDeparture.iataCode, this.selectedDeparture.name, 'to', this.selectedDestination.iataCode,
-    this.selectedDestination.name, 'flyOut', this.departureDate, 'flyBack', this.returnDate]);
+      this.selectedDestination.name, 'flyOut', this.departureDate, 'flyBack', this.returnDate]);
   }
 
   ngOnDestroy() {

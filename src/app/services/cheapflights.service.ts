@@ -7,21 +7,21 @@ import "rxjs/Rx";
 @Injectable()
 export class CheapFlightService {
 
-  constructor(private http: Http) {}
+  constructor(private http: Http) { }
 
   getFlights(departure: any, destination: any, departureDate: any, returnDate: any) {
 
-    return this.http.get('https://murmuring-ocean-10826.herokuapp.com/en/api/2/flights/from/' + 
-    departure + '/to/' + destination + '/' + departureDate + '/' + returnDate + '/250/unique/?limit=15&offset-0')
-    .map(
-      (response: Response) => {
-      const data = response.json();
-      return data.flights.sort((a,b) => a.price - b.price);
-    }
-    ).catch(
-      (error: Response) => {
-        return Observable.throw("Error while getting the flights");
-      }
-    );
+    return this.http.get('https://murmuring-ocean-10826.herokuapp.com/en/api/2/flights/from/' +
+      departure + '/to/' + destination + '/' + departureDate + '/' + returnDate + '/250/unique/?limit=15&offset-0')
+      .map(
+        (response: Response) => {
+          const data = response.json();
+          return data.flights.sort((a, b) => a.price - b.price);
+        }
+      ).catch(
+        (error: Response) => {
+          return Observable.throw("Error while getting the flights");
+        }
+      );
   }
 }

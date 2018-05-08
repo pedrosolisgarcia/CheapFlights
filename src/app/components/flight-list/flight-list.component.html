@@ -1,15 +1,15 @@
 <div class="flights-list-area">
   <ul class="flights-list" *ngFor="let flight of flights">
-      <li class="flights-list-item" >
+    <li class="flights-list-item">
       <p>Flight from {{ departure.name }} to {{ destination.name }}: {{ flight.dateFrom | date:'dd/MM/yyyy' }}</p>
       <p>Flight from {{ destination.name }} to {{ departure.name }}: {{ flight.dateTo | date:'dd/MM/yyyy' }}</p>
       <p>Total price: {{ flight.price | number : '1.2-2' }} {{ flight.currency }}</p>
-      </li>
+    </li>
   </ul>
   <div *ngIf="flights.length === 0">
     <p>
-      No flights available from {{ departure.name }} to {{ destination.name }} withing the date range 
-      {{ departureDate | date:'dd/MM/yyyy' }} - {{ returnDate | date:'dd/MM/yyyy' }}
+      No flights available from {{ departure.name }} to {{ destination.name }} withing the date range {{ departureDate | date:'dd/MM/yyyy'
+      }} - {{ returnDate | date:'dd/MM/yyyy' }}
     </p>
   </div>
 </div>

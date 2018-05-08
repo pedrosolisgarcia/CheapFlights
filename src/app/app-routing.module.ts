@@ -5,19 +5,22 @@ import { FlightListComponent } from './components/flight-list/flight-list.compon
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
-    { path: '', component: AirportSelectorComponent, children: [
-        { path: 'flights/from/:departureIataCode/:departureAirportName/to/:destinationIataCode'+
-        '/:destinationAirportName/flyOut/:departureDate/flyBack/:returnDate', 
-        component: FlightListComponent }
-      ]
+    {
+        path: '', component: AirportSelectorComponent, children: [
+            {
+                path: 'flights/from/:departureIataCode/:departureAirportName/to/:destinationIataCode' +
+                    '/:destinationAirportName/flyOut/:departureDate/flyBack/:returnDate',
+                component: FlightListComponent
+            }
+        ]
     },
-    { path: 'page-not-found', component: PageNotFoundComponent, data: {message: 'Page not found!'} },
+    { path: 'page-not-found', component: PageNotFoundComponent, data: { message: 'Page not found!' } },
     { path: '**', redirectTo: '/page-not-found' }
 ];
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(appRoutes, {onSameUrlNavigation: 'reload'})
+        RouterModule.forRoot(appRoutes, { onSameUrlNavigation: 'reload' })
     ],
     exports: [RouterModule]
 })

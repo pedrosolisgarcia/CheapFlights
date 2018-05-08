@@ -16,3 +16,11 @@
     padding: 10px 0 10px 0;
     margin: 2px;
   }
+
+  @media (max-width: 750px) {
+
+    .flights-list {
+      width: 90%;
+    }
+
+  }

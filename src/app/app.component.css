@@ -5,14 +5,23 @@
 }
 
 .nav-bar a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 25px 16px;
-  text-decoration: none;
-  font-size: 17px;
+    display: block;
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 25px 16px;
+    text-decoration: none;
+    font-size: 17px;
 }
 
 .nav-bar a:hover {
     color: #F1C933;
 }
+
+@media (max-width: 750px) {
+
+    .nav-bar a {
+        float: none;
+    }
+
+  }

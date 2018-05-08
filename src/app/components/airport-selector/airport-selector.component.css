@@ -4,10 +4,19 @@
 
 .airport-area, .list-area, .date-area {
     display: flex;
-    margin-right: auto; 
-    margin-left: auto;
-    width: 90%;
+    margin-right: 1em; 
+    margin-left: 1em;
     overflow: hidden;
+}
+
+.airport-area {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.date-area {
+    margin-top: -1em;
+    margin-bottom: 1em;
 }
 
 .airport-main {
@@ -21,24 +30,33 @@
     overflow: hidden;
 }
 
+.list-main {
+    display: block;
+    margin-right: auto; 
+    margin-left: auto;
+    width: 90%;
+    overflow: hidden;
+}
+
 .airport-field, .date-field {
     width: 35%;
+    min-width: 200px;
     margin: 0.25em;
-    border-radius: 5px;
+    border-radius: 5px 5px 0 0;
     background: white;
     
 }
 
-.core-button {
-    display: inline-block;
+.area-button {
     margin-left: 1em;
     margin-bottom: auto;
     margin-top: auto;
     width: 25%;
+    min-width: 200px;
     text-align: center;
 }
 
-button {
+.core-button {
     width: 100%;
     font-size: 24px;
     font-weight: 700;
@@ -59,7 +77,7 @@ button {
     overflow: hidden;
 }
 
-input {
+.airport-input, .date-input {
     width: 90%;
     height: 28px;
     padding: 0 10px;
@@ -74,14 +92,13 @@ input {
     bottom: 0;
     border: 1px;
     background: 0 0;
-    border-radius: 5px;
 }
 
 .date-input {
     width: 80%;
 }
 
-label {
+.input-label {
     display: block;
     padding: 4px 10px;
     font-size: 14px;
@@ -92,13 +109,13 @@ label {
     border-bottom: 1px solid #cee1f2;
 }
 
-ul {
+.table-list {
     width: 100%;
     margin: 0;
     padding-left: 0;
 }
 
-ul li {
+.list-item {
     float: left;
     width: 47%;
     text-align: center;
@@ -111,4 +128,33 @@ ul li {
 .flights-list {
     display: block;
     margin: auto;
+}
+
+@media (max-width: 750px) {
+
+    .airport-area, .list-area, .date-area {
+        flex-direction: column;
+        align-items: center;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .airport-field, .date-field, .core-button {
+        margin-bottom: 0.5em;
+    }
+
+    .area-button {
+        margin-right: auto;
+        margin-left: auto;
+        width: 90%
+    }
+
+    .core-button {
+        margin-top: 0.25em;
+    }
+
+    .airport-field, .date-field, .airport-list  {
+        width: 90%;
+    }
+
 }
