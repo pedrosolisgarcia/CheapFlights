@@ -12,6 +12,7 @@ import { AiportsService } from './services/airports.service';
 import { CheapFlightService } from './services/cheapflights.service';
 import { AirportSelectorComponent } from './components/airport-selector/airport-selector.component';
 import { FlightListComponent } from './components/flight-list/flight-list.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { FilterAirportPipe } from './filter-airport.pipe';
 
 @NgModule({
@@ -19,7 +20,8 @@ import { FilterAirportPipe } from './filter-airport.pipe';
     AppComponent,
     AirportSelectorComponent,
     FilterAirportPipe,
-    FlightListComponent
+    FlightListComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

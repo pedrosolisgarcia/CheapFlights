@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, Router } from '@angular/router';
 import { AirportSelectorComponent } from './components/airport-selector/airport-selector.component';
 import { FlightListComponent } from './components/flight-list/flight-list.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
     { path: '', component: AirportSelectorComponent, children: [
@@ -10,6 +11,8 @@ const appRoutes: Routes = [
         component: FlightListComponent }
       ]
     },
+    { path: 'page-not-found', component: PageNotFoundComponent, data: {message: 'Page not found!'} },
+    { path: '**', redirectTo: '/page-not-found' }
 ];
 
 @NgModule({
