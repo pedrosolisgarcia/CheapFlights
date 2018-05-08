@@ -35,9 +35,6 @@ export class AirportSelectorComponent implements OnInit {
   startDate: any;
   endDate: any;
 
-  minDate = new Date(2018, 5, 5);
-  maxDate = new Date(2018, 5, 20);
-
   ngOnInit() {
    this.onShowDepartures();
   }
@@ -55,7 +52,6 @@ export class AirportSelectorComponent implements OnInit {
     this.airpotsService.getDestinations(iataCode).subscribe(
       (destinations: any) => {
         this.destinations = destinations;
-        console.log(this.destinations);
       },
       (error) => console.log(error)
     );
@@ -68,11 +64,9 @@ export class AirportSelectorComponent implements OnInit {
   formatDate(date: string, dateType: string) {
     if (dateType === 'start') {
       this.startDate = this.datePipe.transform(date, 'yyyy-MM-dd')
-      console.log(this.startDate);
     }
     if (dateType === 'end') {
       this.endDate = this.datePipe.transform(date, 'yyyy-MM-dd')
-      console.log(this.endDate);
     } 
   }
 

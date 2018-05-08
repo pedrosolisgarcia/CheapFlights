@@ -3,7 +3,7 @@
 }
 
 .airport-area, .list-area, .date-area {
-    display: block;
+    display: flex;
     margin-right: auto; 
     margin-left: auto;
     width: 90%;
@@ -21,17 +21,7 @@
     overflow: hidden;
 }
 
-.airport-area, .date-area {
-    /* margin-top: 1em;
-    background-color: #1177ca;
-    border: 1px solid #073590; */
-    width: 90%;
-    display: flex;
-}
-
 .airport-field, .date-field {
-    margin-top: 50px;
-    display: inline-block;
     width: 35%;
     margin: 0.25em;
     border-radius: 5px;

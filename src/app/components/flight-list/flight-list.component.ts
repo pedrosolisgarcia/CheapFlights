@@ -64,7 +64,6 @@ export class FlightListComponent implements OnInit, OnDestroy {
     this.cheapFlightService.getFlights(departure, destination, startDate, endDate).subscribe(
       (flights: any) => {
         this.flights = flights;
-        console.log(this.flights);
       },
       (error) => console.log(error)
     );
