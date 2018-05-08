@@ -5,7 +5,8 @@ import { FlightListComponent } from './components/flight-list/flight-list.compon
 
 const appRoutes: Routes = [
     { path: '', component: AirportSelectorComponent, children: [
-        { path: 'flights/:depCode/:depName/:destCode/:destName/:startDate/:endDate', component: FlightListComponent }
+        { path: 'flights/:departureIataCode/:departureAirportName/:destinationIataCode/:destinationAirportName/:departureDate/:returnDate', 
+        component: FlightListComponent }
       ]
     },
 ];

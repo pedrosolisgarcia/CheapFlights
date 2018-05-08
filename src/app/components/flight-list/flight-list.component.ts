@@ -17,8 +17,8 @@ export class FlightListComponent implements OnInit, OnDestroy {
 
   departure: Airport;
   destination: Airport;
-  startDate: any;
-  endDate: any;
+  departureDate: any;
+  returnDate: any;
 
   flights = new Array<Flight>();
 
@@ -28,14 +28,14 @@ export class FlightListComponent implements OnInit, OnDestroy {
       if (evt instanceof NavigationEnd) {      
 
         this.paramsSubscription = this.gatherFlightInfo();
-        this.onShowFlights(this.departure, this.destination, this.startDate, this.endDate);
+        this.onShowFlights(this.departure, this.destination, this.departureDate, this.returnDate);
       }
   });
   }
   
   ngOnInit() {
     this.paramsSubscription = this.gatherFlightInfo();
-    this.onShowFlights(this.departure, this.destination, this.startDate, this.endDate);
+    this.onShowFlights(this.departure, this.destination, this.departureDate, this.returnDate);
   }
 
   gatherFlightInfo() {
@@ -43,22 +43,22 @@ export class FlightListComponent implements OnInit, OnDestroy {
     return this.route.params.subscribe(
       (params: Params) => {
         this.departure = {
-          iataCode: params['depCode'],
-          name: params['depName']
+          iataCode: params['departureIataCode'],
+          name: params['departureAirportName']
         }
         this.destination = {
-          iataCode: params['destCode'],
-          name: params['destName']
+          iataCode: params['destinationIataCode'],
+          name: params['destinationAirportName']
         }
-        this.startDate = params['startDate'];
-        this.endDate = params['endDate'];
+        this.departureDate = params['departureDate'];
+        this.returnDate = params['returnDate'];
       }
     );
   }
 
-  onShowFlights(departure: any, destination: any, startDate: any, endDate: any) {
+  onShowFlights(departure: any, destination: any, departureDate: any, returnDate: any) {
 
-    this.cheapFlightService.getFlights(departure, destination, startDate, endDate).subscribe(
+    this.cheapFlightService.getFlights(departure, destination, departureDate, returnDate).subscribe(
       (flights: any) => {
         this.flights = flights;
       },

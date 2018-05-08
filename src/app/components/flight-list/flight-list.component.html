@@ -9,7 +9,7 @@
   <div *ngIf="flights.length === 0">
     <p>
       No flights available from {{ departure.name }} to {{ destination.name }} withing the date range 
-      {{ startDate | date:'dd/MM/yyyy' }} - {{ endDate | date:'dd/MM/yyyy' }}
+      {{ departureDate | date:'dd/MM/yyyy' }} - {{ returnDate | date:'dd/MM/yyyy' }}
     </p>
   </div>
 </div>

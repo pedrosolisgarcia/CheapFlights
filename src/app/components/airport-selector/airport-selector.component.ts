@@ -29,8 +29,8 @@ export class AirportSelectorComponent implements OnInit {
   filteredDestination = '';
   showDateArea = false;
   destinationSelected = false;
-  startDate: any;
-  endDate: any;
+  departureDate: any;
+  returnDate: any;
 
   ngOnInit() {
    this.onShowDepartures();
@@ -60,15 +60,15 @@ export class AirportSelectorComponent implements OnInit {
 
   formatDate(date: string, dateType: string) {
     if (dateType === 'start') {
-      this.startDate = this.datePipe.transform(date, 'yyyy-MM-dd')
+      this.departureDate = this.datePipe.transform(date, 'yyyy-MM-dd')
     }
     if (dateType === 'end') {
-      this.endDate = this.datePipe.transform(date, 'yyyy-MM-dd')
+      this.returnDate = this.datePipe.transform(date, 'yyyy-MM-dd')
     } 
   }
 
   onLoadFlightsComponent() {
     this.router.navigate(['/flights/', this.selectedDeparture.iataCode, this.selectedDeparture.name, this.selectedDestination.iataCode,
-     this.selectedDestination.name, this.startDate,this.endDate]);
+     this.selectedDestination.name, this.departureDate,this.returnDate]);
   }
 }

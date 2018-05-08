@@ -24,15 +24,15 @@
         <div class="date-area" *ngIf="showDateArea">
             <div class="date-field">
               <label for="flyOut"><strong>Fly out:</strong></label>
-              <input class="date-input" matInput name="flyOut" [max]="endDate"
-              [matDatepicker]="pickerOut" placeholder="DD/MM/YYYY" [(ngModel)]="startDate" (dateChange)="formatDate(startDate,'start')">
+              <input class="date-input" matInput name="flyOut" [max]="returnDate"
+              [matDatepicker]="pickerOut" placeholder="DD/MM/YYYY" [(ngModel)]="departureDate" (dateChange)="formatDate(departureDate,'start')">
               <mat-datepicker-toggle matSuffix [for]="pickerOut"></mat-datepicker-toggle>
               <mat-datepicker #pickerOut></mat-datepicker>
             </div>
             <div class="date-field">
               <label for="flyBack"><strong>Fly Back:</strong></label>
-              <input class="date-input" matInput name="flyBack" [min]="startDate" 
-              [matDatepicker]="pickerBack" placeholder="DD/MM/YYYY" [(ngModel)]="endDate" (dateChange)="formatDate(endDate,'end')">
+              <input class="date-input" matInput name="flyBack" [min]="departureDate" 
+              [matDatepicker]="pickerBack" placeholder="DD/MM/YYYY" [(ngModel)]="returnDate" (dateChange)="formatDate(returnDate,'end')">
               <mat-datepicker-toggle matSuffix [for]="pickerBack"></mat-datepicker-toggle>
               <mat-datepicker #pickerBack></mat-datepicker>
             </div>
