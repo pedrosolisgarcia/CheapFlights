@@ -13,7 +13,8 @@ import { Airport } from '../../models/airport.model';
 })
 export class AirportSelectorComponent implements OnInit {
 
-  navigationSubscription: Subscription;
+  flightsInfoSubscription: Subscription;
+  flightsSubscription: Subscription;
 
   constructor(private router: Router, private route: ActivatedRoute, private airpotsService: AiportsService, private datePipe: DatePipe) {}
 
@@ -52,10 +53,6 @@ export class AirportSelectorComponent implements OnInit {
       },
       (error) => console.log(error)
     );
-  }
-
-  onLoadFlightList() {
-    this.router.navigate(['/flights']);
   }
 
   formatDate(date: string, dateType: string) {

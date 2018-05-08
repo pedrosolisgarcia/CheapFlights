@@ -3,14 +3,14 @@
     <div class="airport-main">
         <div class="airport-area">
             <div class="airport-field">
-                <label for="departureInput"><strong>From:</strong></label>
+                <label for="departureInput">From:</label>
                 <input name="departureInput" type="text" 
                 (focus)="showDepartures = true; showDestinations = false; showDateArea = false" 
                  placeholder="Departure Airport" [(ngModel)]="filteredAirport">
             </div>
       
             <div class="airport-field">
-                <label for="destinationInput"><strong>To:</strong></label>
+                <label for="destinationInput">To:</label>
                 <input name="destinationInput" [disabled]="!departureSelected" type="text" 
                 (focus)="showDestinations = true; showDepartures = false; showDateArea = false" 
                 [(ngModel)]="filteredDestination" placeholder="Destination Airport">
@@ -23,14 +23,14 @@
       
         <div class="date-area" *ngIf="showDateArea">
             <div class="date-field">
-              <label for="flyOut"><strong>Fly out:</strong></label>
+              <label for="flyOut">Fly out:</label>
               <input class="date-input" matInput name="flyOut" [max]="returnDate"
               [matDatepicker]="pickerOut" placeholder="DD/MM/YYYY" [(ngModel)]="departureDate" (dateChange)="formatDate(departureDate,'start')">
               <mat-datepicker-toggle matSuffix [for]="pickerOut"></mat-datepicker-toggle>
               <mat-datepicker #pickerOut></mat-datepicker>
             </div>
             <div class="date-field">
-              <label for="flyBack"><strong>Fly Back:</strong></label>
+              <label for="flyBack">Fly Back:</label>
               <input class="date-input" matInput name="flyBack" [min]="departureDate" 
               [matDatepicker]="pickerBack" placeholder="DD/MM/YYYY" [(ngModel)]="returnDate" (dateChange)="formatDate(returnDate,'end')">
               <mat-datepicker-toggle matSuffix [for]="pickerBack"></mat-datepicker-toggle>

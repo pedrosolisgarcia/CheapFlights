@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params, Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -11,9 +11,10 @@ import { Flight } from '../../models/flight.model';
   templateUrl: './flight-list.component.html',
   styleUrls: ['./flight-list.component.css']
 })
-export class FlightListComponent implements OnInit, OnDestroy {
+export class FlightListComponent implements OnDestroy {
 
-  paramsSubscription: Subscription;
+  flightsInfoSubscription: Subscription;
+  flightsSubscription: Subscription;
 
   departure: Airport;
   destination: Airport;
@@ -27,20 +28,15 @@ export class FlightListComponent implements OnInit, OnDestroy {
    this.router.events.subscribe((evt) => {
       if (evt instanceof NavigationEnd) {      
 
-        this.paramsSubscription = this.gatherFlightInfo();
+        this.gatherFlightInfo();
         this.onShowFlights(this.departure, this.destination, this.departureDate, this.returnDate);
       }
   });
   }
-  
-  ngOnInit() {
-    this.paramsSubscription = this.gatherFlightInfo();
-    this.onShowFlights(this.departure, this.destination, this.departureDate, this.returnDate);
-  }
 
   gatherFlightInfo() {
 
-    return this.route.params.subscribe(
+    this.flightsInfoSubscription = this.route.params.subscribe(
       (params: Params) => {
         this.departure = {
           iataCode: params['departureIataCode'],
@@ -58,7 +54,7 @@ export class FlightListComponent implements OnInit, OnDestroy {
 
   onShowFlights(departure: any, destination: any, departureDate: any, returnDate: any) {
 
-    this.cheapFlightService.getFlights(departure, destination, departureDate, returnDate).subscribe(
+    this.flightsSubscription = this.cheapFlightService.getFlights(departure, destination, departureDate, returnDate).subscribe(
       (flights: any) => {
         this.flights = flights;
       },
@@ -67,6 +63,7 @@ export class FlightListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.paramsSubscription.unsubscribe();
+    this.flightsInfoSubscription.unsubscribe();
+    this.flightsSubscription.unsubscribe();
   }
 }
