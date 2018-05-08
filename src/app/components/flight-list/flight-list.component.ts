@@ -2,6 +2,7 @@ import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { CheapFlightService } from '../../services/cheapflights.service';
 import { ActivatedRoute, Params, Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { Airport } from '../../airport.model';
 
 @Component({
   selector: 'app-flight-list',
@@ -12,8 +13,8 @@ export class FlightListComponent implements OnInit, OnDestroy {
 
   paramsSubscription: Subscription;
 
-  departure: {iataCode: string, name: string};
-  destination: { iataCode: string, name: string};
+  departure: Airport;
+  destination: Airport;
   startDate: any;
   endDate: any;
 

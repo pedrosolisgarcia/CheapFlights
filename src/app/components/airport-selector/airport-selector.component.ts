@@ -1,8 +1,10 @@
 import { Component, Injectable, OnInit, NgModule } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { AiportsService } from '../../services/airports.service';
 import { DatePipe } from '@angular/common';
+import { Subscription } from 'rxjs';
+
+import { AiportsService } from '../../services/airports.service';
+import { Airport } from '../../airport.model';
 
 @Component({
   selector: 'app-airport-selector',
@@ -15,16 +17,10 @@ export class AirportSelectorComponent implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute, private airpotsService: AiportsService, private datePipe: DatePipe) {}
 
-  departures: any;
-  selectedDeparture = {
-    iataCode: '',
-    name: ''
-  };
-  destinations: any;
-  selectedDestination = {
-    iataCode: '',
-    name: ''
-  };
+  departures: Airport[];
+  destinations: Airport[];
+  selectedDeparture: Airport;
+  selectedDestination: Airport;
   showDepartures = false;
   showDestinations = false;
   departureSelected = false;
