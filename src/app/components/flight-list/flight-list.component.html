@@ -7,7 +7,7 @@
     </li>
   </ul>
   <div *ngIf="flights.length === 0">
-    <p>
+    <p class="flights-list-message">
       No flights available from {{ departure.name }} to {{ destination.name }} withing the date range {{ departureDate | date:'dd/MM/yyyy'
       }} - {{ returnDate | date:'dd/MM/yyyy' }}
     </p>

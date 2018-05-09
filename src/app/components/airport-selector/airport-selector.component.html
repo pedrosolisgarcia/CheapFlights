@@ -43,14 +43,16 @@
     <div class="list-main">
         <div class="list-area">
             <div class="airport-list" *ngIf="showDepartures">
+                <h4 class="list-header">Pick an airport</h4>
                 <ul class="table-list" *ngFor="let departure of departures | filterAirport:typedDeparture">
-                    <li class="list-item" style="cursor: pointer" (click)="selectedDeparture = departure; typedDeparture = departure.name;
+                    <li class="list-item" (click)="selectedDeparture = departure; typedDeparture = departure.name;
                     departureSelected = true; onShowDestinations(selectedDeparture.iataCode)">{{ departure.name }}</li>
                 </ul>
             </div>
             <div class="airport-list" *ngIf="showDestinations">
+                <h4 class="list-header">Pick an airport</h4>
                 <ul class="table-list" *ngFor="let destination of destinations | filterAirport:typedDestination">
-                    <li class="list-item" style="cursor: pointer" (click)="selectedDestination = destination; typedDestination = destination.name;
+                    <li class="list-item" (click)="selectedDestination = destination; typedDestination = destination.name;
                     destinationSelected = true">{{ destination.name }}</li>
                 </ul>
             </div>

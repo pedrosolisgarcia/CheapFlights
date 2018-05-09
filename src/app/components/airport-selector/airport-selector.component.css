@@ -6,7 +6,6 @@
     display: flex;
     margin-right: 1em; 
     margin-left: 1em;
-    overflow: hidden;
 }
 
 .airport-area {
@@ -20,14 +19,12 @@
 }
 
 .airport-main {
-    display: block;
     margin-right: auto; 
     margin-left: auto;
     margin-top: 1em;
     background-color: #1177ca;
     border: 1px solid #073590;
     width: 90%;
-    overflow: hidden;
 }
 
 .list-main {
@@ -47,13 +44,37 @@
     
 }
 
+.input-label {
+    display: block;
+    padding: 4px 10px;
+    font-size: 14px;
+    background: #e9f2f9;
+    color: #2E2E2E;
+    line-height: 18px;
+    border-radius: 4px 4px 0 0;
+    border-bottom: 1px solid #cee1f2;
+}
+
+.airport-input, .date-input {
+    padding: 0 10px;
+    color: #073590;
+    font-size: 18px;
+    font-weight: 700;
+    outline: 0;
+    line-height: 28px;
+    border: 1px;
+}
+
+.date-input {
+    width: 80%;
+}
+
 .area-button {
     margin-left: 1em;
     margin-bottom: auto;
     margin-top: auto;
     width: 25%;
     min-width: 200px;
-    text-align: center;
 }
 
 .core-button {
@@ -68,45 +89,19 @@
     outline: 0;
 }
 
+.list-header {
+    font-size: 18px;
+    padding: 0 2em;
+    color: #073590;
+}
+
 .airport-list {
     display: block;
     width: 75%;
-    margin: right;
-    background-color: #1177ca;
-    border: 1px solid #073590;
-    overflow: hidden;
-}
-
-.airport-input, .date-input {
-    width: 90%;
-    height: 28px;
-    padding: 0 10px;
-    color: #073590;
-    font-size: 18px;
-    font-weight: 700;
-    outline: 0;
-    vertical-align: middle;
-    text-transform: capitalize;
-    z-index: 1;
-    line-height: 28px;
-    bottom: 0;
+    background-color: #f8fafc;
     border: 1px;
-    background: 0 0;
-}
-
-.date-input {
-    width: 80%;
-}
-
-.input-label {
-    display: block;
-    padding: 4px 10px;
-    font-size: 14px;
-    background: #e9f2f9;
-    color: #2E2E2E;
-    line-height: 18px;
-    border-radius: 4px 4px 0 0;
-    border-bottom: 1px solid #cee1f2;
+    border-radius: 5px;
+    border-color: #cee1f2;
 }
 
 .table-list {
@@ -116,18 +111,19 @@
 }
 
 .list-item {
+    cursor: pointer;
     float: left;
-    width: 47%;
+    width: 33.26%;
     text-align: center;
     list-style-type: none;
-    background: lightgray;
     padding: 10px 0 10px 0;
-    margin: 2px;
+    color: #2E2E2E;
+    font-size: 16px;
 }
 
-.flights-list {
-    display: block;
-    margin: auto;
+.table-list .list-item:hover {
+    background: #e9f2f9;
+    color: #fff;
 }
 
 @media (max-width: 750px) {
@@ -157,4 +153,11 @@
         width: 90%;
     }
 
+    .list-header {
+        text-align: center;
+    }
+
+    .list-item {
+        width: 100%;
+    } 
 }

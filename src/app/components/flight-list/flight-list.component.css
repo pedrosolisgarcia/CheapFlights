@@ -1,26 +1,40 @@
 .flights-list-area {
     display: block;
     text-align: center;
-}
-
-.flights-list {
     width: 50%;
     padding-left: 0;
     margin-right: auto; 
     margin-left: auto;
+    background-color: #f8fafc;
+    border: 1px;
+    border-radius: 5px;
+    border-color: #cee1f2;
   }
-  .flights-list-item {
+
+  .flights-list {
+    margin: 0;
+    padding-left: 0;
+}
+
+  .flights-list-item, .flights-list-message {
     cursor: pointer;
     list-style-type: none;
-    background: lightgray;
     padding: 10px 0 10px 0;
     margin: 2px;
   }
 
+  .flights-list-item:hover {
+    background: #e9f2f9;
+  }
+
+  .flights-list-message {
+    width: 75%;
+    text-align: center;
+  }
+
   @media (max-width: 750px) {
 
-    .flights-list {
+    .flights-list-area {
       width: 90%;
     }
-
   }
