@@ -1,18 +1,24 @@
 # Ryanair FE Test Solution
 
-This project has been created by `Pedro Solis Garcia`, who applies for the position `Junior Front End Developer` at Ryanair.
+This project has been created by `Pedro Solis Garcia`, who applies for the position `Junior Front End Developer` with Ryanair.
+
+`NOTE:`
+Before I start, I should point out something:
+First, I apologies for the delay in delivering this assignment. As I already mentioned to the Recruitment Officer Paulina Pęczkowska in my emails, 
+I had my time very limited to achieve this task, as last week was bank holiday here in Poland and I had family visit during the whole week. I received 
+this assignment a day before their arrival, so I barely had time until two days ago. I apologies once again for the delay and inconvenience.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
 
 ## Development
 
-In order to run the project in localhost 4200, type the following command:
+In order to run the project in localhost 4200, please type the following command:
 
   $ ng serve
 
 ## Tasks
 
-As requested in the task, the project's goal is to find the cheapest flights that connect two airports during the desired dates.
+As requested in the assignment, the project's goal is to find the cheapest flights that connect two airports during the dates provided.
 
 The webapp has the following structure:
 
@@ -20,21 +26,21 @@ The webapp has the following structure:
 
 #### AirportSelector
 
-An airport selector which displays a list of airports, allowing the user to select the desired departure airport.
+* An airport selector which displays a list of airports, allowing the user to select the desired departure airport.
 
-Considering the airport selected, the user will have the possibility to select only the airports connected to the one he chose.
+* Considering the airport selected, the user will have the possibility to select only the airports reachables from the one he chose.
 
-The user can either select the airport from the list, or typing the name in order to filter the airport list, making it faster to find.
+* The user can either select the airport from the list or type the name to filter the airport list, making it faster to find.
 
-Once selected the airports, the user will have to select the initial and final date for his flights, which will be picked from a date calendar.
+* Once the airports are selected, the user will have to select the initial and final date for his flights, which will be picked from a date calendar.
 
 #### Flight List
 
-Once the user has chosen the airports and dates, the system will search for all the available flights between the airports within the date range provided.
+* Once the user has chosen the airports and dates, the system will search for all the available flights between the airports within the date range provided.
 
-The flight list is sorted showing first the cheapest flights.
+* The flight list is sorted showing from the cheapest to the most expensive.
 
-The URL for this flights search can be copied to be used later on, as the system will directly show the flight list once loaded the link.
+* The URL resulting from the flights search can be copied to be used later on, as the system will directly show the flight list once loaded the link.
 
 
 ##### Note:
@@ -46,19 +52,19 @@ The components Date Selector and Date Wrapped have been replaced by the Angular 
 
 #### AirportsService
 
-A service which gets the data from the API below, retrieving the airports for the user to choose.
+* A service which gets the data from the API below, retrieving the airports for the user to choose.
 
 ```
 https://murmuring-ocean-10826.herokuapp.com/en/api/2/forms/flight-booking-selector/
 ```
 
-The server will filter the IATA Code of the airports and its name in all scenarios.
+* The server will filter the IATA Code of the airports and its name in all scenarios.
 
-The server will take from the API the airports reachable from the airport selected by the user, filtering by IATA Code in the routes tree.
+* The server will take from the API the airports reachable from the airport selected by the user, filtering by IATA Code in the routes tree.
 
 #### CheapFlightsService
 
-This server gathers the airports and dates introduced by the user and enters the flights root of the API below. In this case it would show the flights available
+* This server gathers the airports and dates introduced by the user and enters the flights root of the API below. In this case it would show the flights available
 from Dublin to London Stansted with the dates 02/12/2014 and 02/02/2015.
 
 ```
@@ -67,19 +73,19 @@ https://murmuring-ocean-10826.herokuapp.com/en/api/2/flights/from/DUB/to/STN/201
 
 ### Routing
 
-The flight list page is a child route of the home page.
+* The flight list page is a child route of the home page.
 
-The search from Airport selector is always reachable
+* The search area from Airport selector is always reachable
 
-As indicated above, the flight list is deep linked, so  URL can be reused to check faster the flights available.
+* As indicated above, the flight list is deep linked, so  URL can be reused to check faster the flights available.
 
-If the user types an unknown path for the router, it will be redirected to a Page Not Found screen.
+* If the user types an unknown path for the router, it will be redirected to a Page Not Found screen.
 
 ### Refactor
 
-As pointed before, the `DateWrapper` and `DateSelector` components have been replaced by the MatDatePicker Module from Angular Material.
+* As pointed before, the `DateWrapper` and `DateSelector` components have been replaced by the MatDatePicker Module from Angular Material.
 
-The functionality and code is implemented inside the AirportSelector component.
+* The functionality and code is implemented inside the AirportSelector component.
 
 #### Extra points achieved:
 
@@ -88,15 +94,6 @@ The functionality and code is implemented inside the AirportSelector component.
 * The project presents responsive design, getting adapted for both desktop and mobile screens
 
 #### This which can be improved
-
-`NOTE:`
-```
-Before I start with this point, I should point out something:
-First I apologies for the delay in delivering back this assignment. As I already mentioned to the Recruitment Officer 
-Paulina Pęczkowska in my emails, I had my time limited to achieve this task, as last week was bank holiday here in Poland, 
-and I had family visit during the whole week. I received this assignment a day before they came, so I barely had time until 
-two days ago. I apologies once again for the delay and inconvenience.
-```
 
 * Unit Tests not performed.
 * The flight list URL, even if achieves its functionality, is including the data in its link as pure path, not as variables.
