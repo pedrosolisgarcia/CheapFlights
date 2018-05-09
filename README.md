@@ -12,6 +12,23 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development
 
+First of all, install all dependencies:
+
+  $ (sudo) npm install
+  
+Make sure that the last version of Angular CLI is being used. in order to update:
+
+  $ (sudo) npm uninstall -g angular-cli @angular/cli
+  $ npm cache clean --force
+  $ (sudo) npm install -g @angular/cli
+
+This project uses the following angular libraries which will need to be imported beforehand:
+
+ * rxjs and rxjs-compat
+ * @angular/material 
+ * @angular/cdk
+ * @angular/animation
+
 In order to run the project in localhost 4200, please type the following command:
 
   $ ng serve
@@ -98,3 +115,12 @@ https://murmuring-ocean-10826.herokuapp.com/en/api/2/flights/from/DUB/to/STN/201
 * Unit Tests not performed.
 * The flight list URL, even if achieves its functionality, is including the data in its link as pure path, not as variables.
 * The design is responsive, but it is not mobile responsive first, as the styling has been designed first for big screens.
+
+#### Comments and further questions
+
+A copy of this proyect with all modules and dependencies will be sent to Paulina Pęczkowska in case of any issues when compiling.
+If there is anything needed from my side, please let me know by email: solisgpedro@gmail.com
+
+Kind Regards,
+
+Pedro Solís García.
