@@ -92,11 +92,10 @@ The functionality and code is implemented inside the AirportSelector component.
 `NOTE:`
 ```
 Before I start with this point, I should point out something:
-First I apologies for the delay in delivering back this assignment. As I already mentioned to the 
-Recruitment Officer Paulina Pęczkowska in my emails, I had my time limited to achieve this task, 
-as last week was bank holiday here in Poland, and I had family visit during the whole week. I 
-received this assignment a day before they came, so I barely had time until two days ago. 
-I apologies once again for the delay and inconvenience.
+First I apologies for the delay in delivering back this assignment. As I already mentioned to the Recruitment Officer 
+Paulina Pęczkowska in my emails, I had my time limited to achieve this task, as last week was bank holiday here in Poland, 
+and I had family visit during the whole week. I received this assignment a day before they came, so I barely had time until 
+two days ago. I apologies once again for the delay and inconvenience.
 ```
 
 * Unit Tests not performed.
