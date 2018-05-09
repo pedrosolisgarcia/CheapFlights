@@ -1,6 +1,6 @@
 # Ryanair FE Test Solution
 
-This project has been created by `Pedro Solis Garcia`, who applies for the position `Junior Front End Developer` in Ryanair.
+This project has been created by `Pedro Solis Garcia`, who applies for the position `Junior Front End Developer` at Ryanair.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
 
@@ -92,7 +92,11 @@ The functionality and code is implemented inside the AirportSelector component.
 `NOTE:`
 ```
 Before I start with this point, I should point out something:
-First I apologies for the delay in delivering back this assignment. As I already mentioned to the Recruitment Officer Paulina Pęczkowska in my emails, I had my time limited to achieve this task, as last week was bank holiday here in Poland, and I had family visit during the whole week. I received this assignment a day before they came, so I barely had time until two days ago. I apologies once again for the delay and inconvenience.
+First I apologies for the delay in delivering back this assignment. As I already mentioned to the 
+Recruitment Officer Paulina Pęczkowska in my emails, I had my time limited to achieve this task, 
+as last week was bank holiday here in Poland, and I had family visit during the whole week. I 
+received this assignment a day before they came, so I barely had time until two days ago. 
+I apologies once again for the delay and inconvenience.
 ```
 
 * Unit Tests not performed.
