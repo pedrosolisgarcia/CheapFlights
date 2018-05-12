@@ -35,4 +35,4 @@ import { FilterAirportPipe } from './filter-airport.pipe';
   providers: [AiportsService, CheapFlightService, DatePipe],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

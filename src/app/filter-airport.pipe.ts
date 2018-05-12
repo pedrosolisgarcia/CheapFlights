@@ -17,5 +17,4 @@ export class FilterAirportPipe implements PipeTransform {
     }
     return resultArray;
   }
-
 }
