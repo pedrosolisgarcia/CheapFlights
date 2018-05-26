@@ -1,12 +1,4 @@
-# Ryanair FE Test Solution
-
-This project has been created by `Pedro Solis Garcia`, who applies for the position `Junior Front End Developer` with Ryanair.
-
-`NOTE:`
-Before I start, I should point out something:
-First, I apologies for the delay in delivering this assignment. As I already mentioned to the Recruitment Officer Paulina Pęczkowska in my emails, 
-I had my time very limited to achieve this task, as last week was bank holiday here in Poland and I had family visit during the whole week. I received 
-this assignment a day before their arrival, so I barely had time until two days ago. I apologies once again for the delay and inconvenience.
+# Cheap Flights
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
 
@@ -115,12 +107,3 @@ https://murmuring-ocean-10826.herokuapp.com/en/api/2/flights/from/DUB/to/STN/201
 * Unit Tests not performed.
 * The flight list URL, even if achieves its functionality, is including the data in its link as pure path, not as variables.
 * The design is responsive, but it is not mobile responsive first, as the styling has been designed first for big screens.
-
-#### Comments and further questions
-
-A copy of this proyect with all modules and dependencies will be sent to Paulina Pęczkowska in case of any issues when compiling.
-If there is anything needed from my side, please let me know by email: solisgpedro@gmail.com
-
-Kind Regards,
-
-Pedro Solís García.
